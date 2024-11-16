@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import UserCheckProvider from "./UserCheckProvider";
+import PrelineScript from "@/components/PrelineScript";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -19,11 +21,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="antialiased bg-white">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-white`}
       >
-        {children}
+        <UserCheckProvider>{children}</UserCheckProvider>
+        <PrelineScript />
       </body>
     </html>
   );
