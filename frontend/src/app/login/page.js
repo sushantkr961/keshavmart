@@ -1,14 +1,40 @@
 "use client";
+import axios from "axios";
 import React, { useState } from "react";
 
 const Page = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false); // To track loading state
+  const [error, setError] = useState(""); // To display errors
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+    setLoading(true);
+    setError("");
+
+    try {
+      const response = await axios.post(
+        "http://192.168.0.108:8081/auth/login",
+        {
+          userName: email,
+          password,
+        }
+      );
+      if (response.data) {
+        console.log("Login Successful:", response.data);
+        // alert("Login Successful!");
+        localStorage.setItem("user", JSON.stringify(response.data));
+
+      }
+    } catch (error) {
+      console.log("Login Error:", error);
+      setError(
+        error.response?.data?.message || "An error occurred. Please try again."
+      );
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -21,13 +47,17 @@ const Page = () => {
           onSubmit={handleSubmit}
           className="mb-0 mt-6 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
         >
+          {error && (
+            <div className="text-red-500 text-sm text-center">{error}</div>
+          )}
+
           <div>
             <label htmlFor="email" className="sr-only">
               Email
             </label>
             <div className="relative">
               <input
-                type="email"
+                type="text"
                 id="email"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm text-black placeholder-black"
                 placeholder="Enter email"
@@ -59,7 +89,7 @@ const Page = () => {
             </label>
             <div className="relative">
               <input
-                type="password"
+                type="text"
                 id="password"
                 className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-sm text-black placeholder-black"
                 placeholder="Enter password"
@@ -93,9 +123,14 @@ const Page = () => {
 
           <button
             type="submit"
-            className="block w-full rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white"
+            className={`block w-full rounded-lg px-5 py-3 text-sm font-medium text-white ${
+              loading
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-indigo-600 hover:bg-indigo-700"
+            }`}
+            disabled={loading}
           >
-            Sign in
+            {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
       </div>
