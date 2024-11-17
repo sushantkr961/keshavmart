@@ -133,7 +133,7 @@ export default function AdminLayout({ children }) {
                   <li>
                     <Link
                       className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 "
-                      href="/admin/add-users"
+                      href="/admin/users/add-user"
                     >
                       Add Users
                     </Link>
@@ -217,7 +217,7 @@ export default function AdminLayout({ children }) {
                   <li>
                     <Link
                       className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 "
-                      href="/admin/add-blog"
+                      href="/admin/products/add-product"
                     >
                       Add Product
                     </Link>
@@ -225,7 +225,7 @@ export default function AdminLayout({ children }) {
                   <li>
                     <Link
                       className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 "
-                      href="/admin/blogs"
+                      href="/admin/products"
                     >
                       All Products
                     </Link>
@@ -302,7 +302,7 @@ export default function AdminLayout({ children }) {
                   <li>
                     <Link
                       className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 "
-                      href="/admin/add-property"
+                      href="/admin/orders/create-order"
                     >
                       Add Order
                     </Link>
@@ -310,85 +310,9 @@ export default function AdminLayout({ children }) {
                   <li>
                     <Link
                       className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 "
-                      href="/admin/property"
+                      href="/admin/orders"
                     >
                       All Orders
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-            </li>
-
-            <li className="hs-accordion" id="projects-accordion">
-              <button
-                type="button"
-                className="hs-accordion-toggle w-full text-start flex items-center gap-x-3.5 py-2 px-2.5 hs-accordion-active:text-blue-600 hs-accordion-active:hover:bg-transparent text-sm text-neutral-700 rounded-lg hover:bg-gray-100 "
-              >
-                <svg
-                  className="flex-shrink-0 size-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <rect width="20" height="14" x="2" y="7" rx="2" ry="2" />
-                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
-                </svg>
-                {/* Sold-Stories */}
-                <svg
-                  className="hs-accordion-active:block ms-auto hidden size-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m18 15-6-6-6 6" />
-                </svg>
-                <svg
-                  className="hs-accordion-active:hidden ms-auto block size-4"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="m6 9 6 6 6-6" />
-                </svg>
-              </button>
-
-              <div
-                id="projects-accordion-child"
-                className="hs-accordion-content w-full overflow-hidden transition-[height] duration-300 hidden"
-              >
-                <ul className="pt-2 ps-2">
-                  <li>
-                    <Link
-                      className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 "
-                      href="/admin/add-sold-stories"
-                    >
-                      Add Sold-Stories
-                    </Link>
-                  </li>
-                  <li>
-                    <Link
-                      className="flex items-center gap-x-3.5 py-2 px-2.5 text-sm text-neutral-700 rounded-lg hover:bg-gray-100 "
-                      href="/admin/sold-stories"
-                    >
-                      Sold-Stories
                     </Link>
                   </li>
                 </ul>
